@@ -43,7 +43,7 @@ ParserState.prototype.restore = function () {
 };
 
 ParserState.prototype.accept = function (type, value) {
-  if (this.nextToken.type === type && this.tokenMatches(this.nextToken, value)) {
+  if (this.nextToken && this.nextToken.type === type && this.tokenMatches(this.nextToken, value)) {
     this.next();
     return true;
   }
@@ -225,7 +225,8 @@ ParserState.prototype.parseAddSub = function (instr) {
       // This is needed as the addition is commutative while subtraction is not.
       // To properly manage the percentage operator, the operation order is reversed,
       // and the operation actually needs to be commutative.
-      op = Object.assign({}, op, { value: '+' });
+      op = JSON.parse(JSON.stringify(op))
+      op.value = '+'
       this.restore();
     }
     this.parseAddSub(instr);

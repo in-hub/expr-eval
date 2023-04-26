@@ -16,7 +16,7 @@ export default function simplify(tokens, unaryOps, binaryOps, ternaryOps, values
       } else {
         nstack.push(item);
       }
-    } else if (type === IVAR && Object.prototype.hasOwnProperty.call(values, item.value)) {
+    } else if (type === IVAR && Object.hasOwnProperty.call(values, item.value)) {
       item = new Instruction(INUMBER, values[item.value]);
       nstack.push(item);
     } else if (type === IOP2 && nstack.length > 1) {

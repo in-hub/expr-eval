@@ -201,7 +201,7 @@ var optionNameMap = {
 };
 
 function getOptionName(op) {
-  return Object.prototype.hasOwnProperty.call(optionNameMap, op) ? optionNameMap[op] : op;
+  return Object.hasOwnProperty.call(optionNameMap, op) ? optionNameMap[op] : op;
 }
 
 Parser.prototype.isOperatorEnabled = function (op) {

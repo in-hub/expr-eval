@@ -17,8 +17,3 @@ export {
   Parser
 };
 
-// Backwards compatibility
-export default {
-  Parser: Parser,
-  Expression: Expression
-};
